@@ -1,2 +1,2 @@
-# service-provider-system
+# Service provider system
 The final work of the golang course. Skillbox
