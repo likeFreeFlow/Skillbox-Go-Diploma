@@ -13,9 +13,9 @@ type MMSData struct {
 	ResponseTime string `json:"response_time"`
 }
 
-// MMSRequest - sends the request to the specified address.
+// MMSRequest - sends request to specified address.
 // Gets data and makes a list.
-// Checks if the data is correct.
+// Checks if data is correct.
 func MMSRequest(addr string) ([]MMSData, error) {
 	resp, err := http.Get(addr)
 	if err != nil {

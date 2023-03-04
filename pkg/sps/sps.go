@@ -10,8 +10,6 @@
 // Collection of incident history system data.
 //
 // The package was created as part of the final work on the course from skillbox
-// By Vyacheslav Kuzmin
-
 package sps
 
 import "strconv"

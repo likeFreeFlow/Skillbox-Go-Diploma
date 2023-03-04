@@ -4,8 +4,9 @@ import (
 	"encoding/json"
 	"net/http"
 
+	"sps/pkg/sps"
+
 	"github.com/go-chi/chi/v5"
-	"github.com/kuzminprog/service-provider-system/pkg/sps"
 	"github.com/spf13/viper"
 )
 

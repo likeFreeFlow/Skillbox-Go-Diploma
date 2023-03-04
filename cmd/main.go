@@ -4,8 +4,9 @@ import (
 	"flag"
 	"log"
 
-	"github.com/kuzminprog/service-provider-system/include/server"
-	"github.com/kuzminprog/service-provider-system/pkg/simulator"
+	"sps/include/server"
+	"sps/pkg/simulator"
+
 	"github.com/spf13/viper"
 )
 
@@ -31,7 +32,7 @@ func main() {
 	}
 }
 
-// initConfig() - initializes the configuration file in yaml format
+// initConfig() - initializes configuration file in yaml format
 func initConfig() error {
 	viper.AddConfigPath("configs")
 	viper.SetConfigName("config")

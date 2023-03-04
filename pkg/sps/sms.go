@@ -22,7 +22,7 @@ const (
 	PROVIDER_SMS
 )
 
-// GetStatusSMS - gets a list of SMS data from a csv file
+// GetStatusSMS - gets list of SMS data from a csv file
 func GetStatusSMS(csvPath string) ([]SMSData, error) {
 	file, err := os.Open(csvPath)
 	if err != nil {

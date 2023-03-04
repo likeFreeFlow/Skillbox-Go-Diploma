@@ -22,7 +22,7 @@ const (
 	DELIVERY_TIME_EMAIL
 )
 
-// GetStatusEmail - gets a list of email data from a csv file
+// GetStatusEmail - gets list of email data from csv file
 func GetStatusEmail(csvPath string) ([]EmailData, error) {
 	file, err := os.Open(csvPath)
 	if err != nil {
@@ -55,7 +55,7 @@ func GetStatusEmail(csvPath string) ([]EmailData, error) {
 	return EmailList, nil
 }
 
-// parseEmail - parses a string from a csv file. Checks if the data is correct
+// parseEmail - parses string from csv file. Checks if data is correct
 func parseEmail(line string) (EmailData, bool) {
 	email := strings.Split(line, ";")
 
@@ -79,9 +79,10 @@ func parseEmail(line string) (EmailData, bool) {
 	}, true
 }
 
-// GetSlowFastEmailProvider - sorts all providers in the country according to the average letter delivery time.
-// It returns two slices.
-// The first contains the three fastest providers, the second contains the three slowest.
+// GetSlowFastEmailProvider - sorts all providers in the country according to average email delivery time.
+// Returns two slices.
+// First one contains top three fastest providers, the second one contains three providers with worst connection/
+
 func GetSlowFastEmailProvider(data []EmailData, code string) (slow []EmailData, fast []EmailData) {
 
 	emailsByCountry := make([]EmailData, 0)

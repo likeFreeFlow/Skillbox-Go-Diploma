@@ -5,10 +5,10 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/kuzminprog/service-provider-system/include/handler"
+	"sps/include/handler"
 )
 
-// StartServer() - starts the server with the specified address and port
+// StartServer() - starts server with specified address and port
 func StartServer(addr string) {
 	log.Println("Start server")
 	server := &http.Server{

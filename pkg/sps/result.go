@@ -20,7 +20,7 @@ type ResultSetT struct {
 	Incidents []IncidentData           `json:"incident"`
 }
 
-// Part of the file path
+// Part of file path
 var (
 	smsFilename     = "/sms.data"
 	emailFilename   = "/email.data"
@@ -28,7 +28,7 @@ var (
 	voiceFilename   = "/voice.data"
 )
 
-// Part of the service address
+// Part of service address
 var (
 	mmsUrl       = "/mms"
 	supportUrl   = "/support"
@@ -42,7 +42,7 @@ const (
 	HIGH_LOAD = 3
 )
 
-// GetResultData - performs all the data collection steps and returns a set ready to be returned.
+// GetResultData - performs all data collection steps and returns a set ready to be returned.
 func GetResultData(apiAddr, dataPath string) (ResultSetT, error) {
 	var result ResultSetT
 
@@ -135,7 +135,7 @@ func getResultMMS(addr string) ([][]MMSData, error) {
 	return [][]MMSData{mmsProviderSort, mmsCountrySort}, nil
 }
 
-// getResultVoice - prepares the VoiceCall list
+// getResultVoice - prepares VoiceCall list
 func getResultVoice(voicePath string) ([]VoiceCallData, error) {
 	voice, err := GetStatusVoice(voicePath)
 	if err != nil {
@@ -145,8 +145,8 @@ func getResultVoice(voicePath string) ([]VoiceCallData, error) {
 }
 
 // getResultEmail - sorts all providers in each country according to their average email delivery time and
-// makes a map with a country code key (map[string][]EmailData) and two slices inside.
-// The first contains the three fastest providers, the second the three slowest.
+// makes map with a country code key (map[string][]EmailData) and two slices inside.
+// First one contains top three fastest providers, the second one contains three providers with worst connection/
 func getResultEmail(emailPath string) (map[string][][]EmailData, error) {
 	data, err := GetStatusEmail(emailPath)
 	if err != nil {
@@ -164,7 +164,7 @@ func getResultEmail(emailPath string) (map[string][][]EmailData, error) {
 	return resultEmail, nil
 }
 
-// getResultBilling - prepares the Billing list
+// getResultBilling - prepares Billing list
 func getResultBilling(billingPath string) (BillingData, error) {
 	billing, err := GetStatusBilling(billingPath)
 	if err != nil {
@@ -175,8 +175,8 @@ func getResultBilling(billingPath string) (BillingData, error) {
 }
 
 // getResultSupport - prepares a slice of two int,
-// the first of which will show the workload of the support service (1-3) and
-// the second - the average waiting time for a response.
+// First one will show the workload of the support service (1-3) and
+// the second - average waiting time for response.
 func getResultSupport(addr string) ([]int, error) {
 	data, err := SupportRequest(addr)
 	if err != nil {
@@ -205,7 +205,7 @@ func getResultSupport(addr string) ([]int, error) {
 }
 
 // getResultIncidents - prepares data about the history of incidents.
-// Incidents with active status are at the top of the list
+// Incidents with active status are at the top of list
 func getResultIncidents(addr string) ([]IncidentData, error) {
 	data, err := IncidentRequest(addr)
 	if err != nil {
