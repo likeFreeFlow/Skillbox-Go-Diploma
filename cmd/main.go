@@ -32,7 +32,7 @@ func main() {
 	}
 }
 
-// initConfig() - initializes configuration file in yaml format
+// initConfig() - initializes configuration file in yaml  format
 func initConfig() error {
 	viper.AddConfigPath("configs")
 	viper.SetConfigName("config")
